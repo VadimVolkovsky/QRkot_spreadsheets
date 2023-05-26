@@ -17,7 +17,7 @@ INFO = {
     'auth_uri': settings.auth_uri,
     'token_uri': settings.token_uri,
     'auth_provider_x509_cert_url': settings.auth_provider_x509_cert_url,
-    'client_x509_cert_url': settings.client_x509_cert_url
+    'client_x509_cert_url': settings.client_x509_cert_url    
 }
 
 cred = ServiceAccountCreds(scopes=SCOPES, **INFO)

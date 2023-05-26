@@ -23,6 +23,37 @@ LOG_FILE = LOGS_DIR / 'fastapi_app.log'
 LOG_FORMAT = '"%(asctime)s - [%(levelname)s] - %(message)s"'
 DR_FORMAT = '%d.%m.%Y %H:%M:%S'
 
+SPREADSHEET_DATE_FORMAT = "%Y/%m/%d %H:%M:%S"
+SPREADSHEET_SERVICE_NAME = 'sheets'
+SPREADSHEET_SERVICE_VERSION = 'v4'
+SPREADSHEET_HEAD_TITLE = 'Отчет на'
+SPREADSHEET_DESCRIPTION = 'Топ проектов по скорости закрытия'
+SPREADSHEET_LOCALE = 'ru_RU'
+SPREADSHEET_SHEETTYPE = 'GRID'
+SPREADSHEET_ID = 0
+SPREADSHEET_TITLE = 'Лист1'
+SPREADSHEET_ROW_COUNT = 100
+SPREADSHEET_COLUMN_COUNT = 11
+SPREADSHEET_CREATED_SUCEED = 'Создана таблица:'
+SPREADSHEET_MAIN_URL = 'https://docs.google.com/spreadsheets/d/'
+SP_UPDATE_RANGE = 'A1:E30'
+SP_UPDATE_VALUE_INPUT_OPTION = 'USER_ENTERED'
+
+DRIVE_USER_PERMISSION_TYPE = 'user'
+DRIVE_USER_PERMISSION_ROLE = 'writer'
+
+DRIVE_SERVICE_NAME = 'drive'
+DRIVE_SERVICE_VERSION = 'v3'
+
+SP_PROJECT_NAME_COLUMN = 'Название проекта'
+SP_PROJECT_TIMEDIFF_COLUMN = 'Время сбора'
+SP_PROJECT_DESCRIPTION_COLUMN = 'Описание проекта'
+
+PROJECT_NAME_FIELD = 'name'
+PROJECT_TIMEDIFF_FIELD = 'timediff'
+PROJECT_DESCRIPTION_FIELD = 'description'
+MAJOR_DIMENSION_TYPE = 'ROWS'
+
 
 class Settings(BaseSettings):
     app_title: str = 'Кошачий благотворительный фонд - QRKot'

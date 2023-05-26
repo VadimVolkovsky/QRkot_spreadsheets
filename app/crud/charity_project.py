@@ -3,6 +3,7 @@ from typing import Dict, List, Union
 
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
+from app.core.config import PROJECT_TIMEDIFF_FIELD
 
 from app.crud.base import CRUDBase
 from app.models.charity_project import CharityProject
@@ -44,10 +45,10 @@ class CRUDCharityProject(CRUDBase):
         и сортирует по времени закрытия"""
         closed_projects = await session.execute(
             select([CharityProject.name,
-                    (func.julianday(CharityProject.close_date) - func.julianday(CharityProject.create_date)).label('timediff'),
+                    (func.julianday(CharityProject.close_date) - func.julianday(CharityProject.create_date)).label(PROJECT_TIMEDIFF_FIELD),
                     CharityProject.description]).where(
-                CharityProject.fully_invested == 1
-            ).order_by('timediff')
+                CharityProject.fully_invested == True  # noqa
+            ).order_by(PROJECT_TIMEDIFF_FIELD)
         )
         return closed_projects.all()
 
